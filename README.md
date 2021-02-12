@@ -4,10 +4,8 @@ wget -O kuoruan-public.key http://openwrt.kuoruan.net/packages/public.key
 opkg-key add kuoruan-public.key
 wget -O kuoruan-public.key http://openwrt.kuoruan.net/packages/public.key
 opkg-key add kuoruan-public.key
-echo "src/gz kuoruan_packages http://openwrt.kuoruan.net/packages/releases/$(. /etc/openwrt_release ; echo $DISTRIB_ARCH)" \
-  >> /etc/opkg/customfeeds.conf
-echo "src/gz kuoruan_universal http://openwrt.kuoruan.net/packages/releases/all" \
-  >> /etc/opkg/customfeeds.conf
+echo "src/gz kuoruan_packages http://openwrt.kuoruan.net/packages/releases/$(. /etc/openwrt_release ; echo $DISTRIB_ARCH)" \ >> /etc/opkg/customfeeds.conf
+echo "src/gz kuoruan_universal http://openwrt.kuoruan.net/packages/releases/all" \ >> /etc/opkg/customfeeds.conf
 opkg update
  
 ##kalo mau install v2ray core
