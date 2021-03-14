@@ -1,0 +1,54 @@
+#!/bin/bash
+clear
+ setup (){
+echo -e "\e[36;3m Proses building.......\e[0m";sleep 1
+wget -O kuoruan-public.key http://openwrt.kuoruan.net/packages/public.key
+opkg-key add kuoruan-public.key
+wget -O kuoruan-public.key http://openwrt.kuoruan.net/packages/public.key
+opkg-key add kuoruan-public.key
+echo "src/gz kuoruan_packages http://openwrt.kuoruan.net/packages/releases/$(. /etc/openwrt_release ; echo $DISTRIB_ARCH)" \
+  >> /etc/opkg/customfeeds.conf
+echo "src/gz kuoruan_universal http://openwrt.kuoruan.net/packages/releases/all" \
+  >> /etc/opkg/customfeeds.conf
+echo -e "\e[36;3m Memperbarui Repository...\e[0m";sleep 1;opkg update;sleep 2;clear
+}
+ banner (){
+clear
+echo -e "\e[35;1mkalo mau install v2ray-core, jangan install v2ray-core-mini, begitu juga sebaliknya.\e[0m"
+echo -e '\e[35;1mkalo error "But that file is already provided by package * dnsmasq"\e[0m'
+echo -e "\e[35;1mopkg remove dnsmasq\e[0m"
+}
+ core (){
+banner
+##kalo mau install v2ray core
+opkg install v2ray-core
+}
+ mini (){
+banner
+##kalo mau install v2ray core mini
+opkg install v2ray-core-mini
+}
+ luci (){
+banner
+##install luci app v2ray
+opkg install luci-app-v2ray
+}
+case $1 in
+ "setup")
+  setup
+  ;;
+  "core")
+  core
+  ;;
+  "mini")
+  mini
+  ;;
+  "luci")
+  luci
+  ;;
+esac
+echo -e "\e[38;3m v2ray-mango core\e[0m \e[34;1m(install v2ray-core)\e[0m"
+echo -e "\e[38;3m v2ray-mango mini\e[0m \e[34;1m(install v2ray-core-mini)\e[0m"
+echo -e "\e[38;3m v2ray-mango luci\e[0m \e[34;1m(install luci-app-v2ray)\e[0m"
+echo -e "\e[38;3m v2ray-mango setup\e[0m \e[34;1m(build packages)\e[0m"
+echo -e "##############################################"
