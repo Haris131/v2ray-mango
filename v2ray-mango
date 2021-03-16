@@ -14,9 +14,9 @@ echo -e "\e[36;3m Memperbarui Repository...\e[0m";sleep 1;opkg update;sleep 2;cl
 }
  banner (){
 clear
-echo -e "\e[35;1mkalo mau install v2ray-core, jangan install v2ray-core-mini, begitu juga sebaliknya.\e[0m"
-echo -e '\e[35;1mkalo error "But that file is already provided by package * dnsmasq"\e[0m'
-echo -e "\e[35;1mopkg remove dnsmasq\e[0m"
+echo -e "kalo mau install v2ray-core, jangan install v2ray-core-mini, begitu juga sebaliknya."
+echo -e 'kalo error "But that file is already provided by package * dnsmasq"'
+echo -e "opkg remove dnsmasq"
 }
  core (){
 banner
